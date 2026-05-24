@@ -24,21 +24,116 @@ Tags|
 
 Wk2 | 5.24.26
 
-EPS Short Reflections |
-Prompt:
+EPS Short Reflections | Evaluation of Prompt Engineering on the Performance of a Large Language Model in Document Information Extraction
+Prompt: What does this teach me about non-extraction and community ownership?
 
-Response: 
+Response:
+
+The idea of automated prompting is something I experiment with. I think it's important to consider the differene between making all loops human centered, 
+vs making them human enabled. I think i want the former. I think APE makes sense to me intuitively as a data scientist knowing how systems talking to systems
+can produce results that human won't arrive at. And I still find that the most critical feature of this paper is the use of a configuration table and how important
+it was to try to account for more than domain expertise, but also "human nuance" in language. While it's less taxing and time consuming that a detailed data entry/cleaning 
+project for classical ML, it stil means that human descernment is important. 
+
+ 
 Key Insight| 
+
+APE makes LLM-based information extraction practical for noisy, variable business documents where hard-coded methods fail. But the broader lesson is that document AI isn't just about better OCR or bigger models, 
+it's about how you orchestrate them with prompts, rules, and human-in-the-loop calibration to handle the real-world messiness that lab benchmarks hide.
+
+APE  based prompting consistently gave the best performance across fields in their dataset.
+
+Q- How can you design a system that unifies all of that chaos into structured, usable data...without retraining (or needing to fine-tune) a new model every single week?
+
+A- build an applied key information extraction pipeline that combines Amazon Textract with LLMs, and guides them through carefully engineered prompts. Instead of hard-coding every field name or retraining models on endless document variations, 
+use configuration tables and prompt optimization to handle schema differences, unit conversions, and domain-specific quirks.
+
+
+Why - [LLM] tying it all together with contextual reasoning that static tools can't provide
+How - [Configuration table] handles schema drift, domain knowledge base issues, unit convertion issues.  
+What - [Textract (OCR)] extracts the text and preprocessess 
+The Prompt Engineering Behind the output - The APE process essentially automates the trial-and-error refinement that human prompt engineers do manually.
+
+Outcome - Real world industrial automate the extraction of critical information from business documents with minimal training overhead and maximum accuracy.
+The status quo: The OCR tools are expected highly structred data to able to perform the extraction 
+The change: a hybrid pipeline that combines the reliability of established OCR technology with the reasoning capabilities of large language models
+
+
+1. CONFIGURATION TABLE These configurations ensure that the extracted data are correctly structured for further
+processing
+
+2. Prompt-Based Data Structuring: The OCR-extracted content and the configuration
+table are processed through a user-defined prompt, thereby ensuring that the data are
+structured according to the configuration settings.
+
+3. LLM Processing: The structured prompt is fed into an LLM, which refines the infor-
+mation into a final structured JSON output. The processed data are then stored in a data
+base for logging and query use.
+
+4. Rule-based Post-processing for Container Count Fields: To enhance the extraction
+accuracy for fields requiring implicit reasoning we implemented a lightweight rule-based post-processing module
+The post-processing module parses the LLM-generated textual output and applies regular
+expression matching to extract structured container counts.
+
+5. Data Filtering and Confidence Calculation: For the results output, the system filters
+the structured data to remove noise values and irrelevant content. A confidence score is
+calculated using a predefined formula to measure the reliability of the results.
+
+6. Query Handling: The field prompt enables user-specific queries to extract targeted
+information from the processed data. The system responds with structured output based
+on the query and the extracted data.
 
 ===
 Terms|
-Source| 
-Tags|
 
-EPS Short Reflections |
-Prompt:
+schema drift - different documents might use different field names for the same concept. (Like "Total" vs "Amount Due" etc)
+
+configuration tables - These configurations ensure that the extracted data are correctly structured for further
+processing
+
+unit conversion problem - The system needs to understand not just that "500 kg" and "1,102 lbs" both represent weights, but that they're roughly equivalent values that should be standardized for downstream processing.
+
+prompt optimization - to handle schema drift 
+
+domain knowledge problem - Business documents are full of shorthand and conventions that are obvious to humans but opaque to machines. 
+
+Optical Character Recognition (OCR) systems - convert images to text, losing all the spatial and structural information that makes documents meaningful.
+
+Textract - OCR that preserves the relationships between different elements on a page. It can identify that certain text appears in a table, that some fields are associated with specific labels, and that the document has an overall hierarchical structure. 
+This structural understanding becomes crucial when dealing with complex business documents where the same piece of information might appear in different locations depending on the document format.
+
+Manual prompt engineering - This is the traditional approach, where human experts craft prompts based on their understanding of the task and the documents. The prompts can include instructions for handling edge cases, format conversions, and missing information. 
+While manual prompts can achieve good performance, they have obvious scalability limitations. Each new document type or business requirement might necessitate rewriting significant portions of the prompt. Moreover, manual prompt engineering requires deep expertise in both the domain and the capabilities of the language model, 
+making it difficult for non-experts to optimize.
+
+Automatic Prompt Engineering, or APE, treats prompt optimization as a machine learning problem in its own right. The idea is that we can use language models not just to process documents, but also to generate and refine the prompts that guide document processing. 
+APE starts with a basic description of the task and some example inputs and outputs, then uses the language model to generate multiple candidate prompts. Each candidate is evaluated on a subset of training data, and the best performers are used as seeds for generating even better prompts. 
+This approach has several advantages over manual prompting. It can explore variations that humans might not think of, it can optimize for specific metrics that matter for the application, and it can adapt to new document types without requiring expert human intervention. 
+The APE process essentially automates the trial-and-error refinement that human prompt engineers do manually.
+
+Instruction Prompt Calibration, or IPC - is a hybrid approach that tries to combine the best of human expertise and automated optimization. IPC recognizes that while automated systems can efficiently explore large spaces of possible prompts, human judgment is still valuable for assessing qualities like clarity, robustness, and alignment with business requirements. 
+In IPC, both human annotators and the language model evaluate each candidate prompt, and the final selection criteria combine feedback from both assessments. By incorporating human judgment into the optimization loop, IPC can identify prompts that are not just high-performing but also robust and interpretable.
+Source| 
+Evaluation of Prompt Engineering on the Performance of a Large Language Model in Document Information Extraction
+by Lun-Chi Chen 1ORCID, Hsin-Tzu Weng 2ORCID, Mayuresh Sunil Pardeshi 3ORCID, Chien-Ming Chen 4ORCID, Ruey-Kai Sheu 5ORCID and Kai-Chih Pai 1,*ORCID
+1College of Engineering, Tunghai Univeristy, Taichung 407224, Taiwan
+2AI Center, Tunghai University, Taichung 407224, Taiwan
+3School of Computer Sciences, UPES, Dehradun 248007, India
+4Department of Business Administration, National Taichung University of Science and Technology, Taichung 404336, Taiwan
+5Department of Computer Science, Tunghai University, Taichung 407224, Taiwan
+Electronics 2025, 14(11), 2145; https://doi.org/10.3390/electronics14112145
+Submission received: 19 April 2025 / Revised: 15 May 2025 / Accepted: 22 May 2025 / Published: 24 May 2025
+
+Tags| RAG + Prompt Engineering + schema drift + APEautomatic promot engineering
+
+EPS Short Reflections | A Galaxy Cluster–Finding Algorithm Using Machine Learning
+Prompt:How does this paper's method shape THIS WEEK'S artifact build?
 
 Response: 
+
+I imagine it's possible to plot audio data, post transformaing it into a vector point, that allows us to analyze patterns in trillions of recording and learn from those patterns.
+Sounds cool and i'm sure it'll lead to new questions and insights. 
+
 Key Insight| 
 
 The MAIN: a workflow and process to use XGBoost (decision tree) + ResNet (CNN) to identify, classify, and learn from patterns in massive data sets. as well as evaluate the new tools capability against
