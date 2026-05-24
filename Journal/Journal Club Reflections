@@ -22,6 +22,63 @@ Source|
 Tags|
 
 
+Wk2 | 5.24.26
+
+EPS Short Reflections |
+Prompt:
+
+Response: 
+Key Insight| 
+
+===
+Terms|
+Source| 
+Tags|
+
+EPS Short Reflections |
+Prompt:
+
+Response: 
+Key Insight| 
+
+The MAIN: a workflow and process to use XGBoost (decision tree) + ResNet (CNN) to identify, classify, and learn from patterns in massive data sets. as well as evaluate the new tools capability against
+existing, often human made, "hand" mapped tools. The idea is to be able to learn from the "pattern of the data universe" vs fitting the data into our priors; theories; bias; existing frameworks - revealing new understaninds. 
+
+So those are the two parts of COSMIC: a classifier to spot the brightest cluster galaxies and a regression network to estimate how rich each surrounding field is. 
+
+Evalution tool: The key tests were completeness (how many known clusters it could recover) and purity (how often its detections were actually real clusters rather than random alignments)
+
+By training on the patterns (rather than relying on hand-crafted rules), it learns what clusters look like in practice, not just in theory. That allows it to push past the limitations of older algorithms and 
+to operate in regimes (like distant, faint, or complex clusters) where traditional approaches lose traction. In practical terms, it's a proof of concept for a future where large-scale cosmological mapping depends less on fixed formulas 
+and more on systems that can learn the universe's patterns directly from the data itself.
+
+===
+Terms|
+
+XGBoost - which is essentially a sophisticated decision tree. It works by creating lots of simple decision trees and then combining their predictions.  it can handle these different types of measurements without needing any special preprocessing. 
+Decision trees naturally work with mixed data types. And unlike traditional methods that rely on color-magnitude diagrams, XGBoost operates in multiple dimensions simultaneously. This enhances the discriminatory power of the model, allowing it to learn subtle patterns that might not be obvious in any single two-dimensional view of the data.
+
+Hyperparameter optimization used cross-validation - This is basically testing your method on different subsets of your data to make sure 
+it's not just getting lucky on one particular dataset. They tried different combinations of settings and measured how well each performed.
+
+ResNet-34 - a type of CNN. ResNet stands for "Residual Network," and it uses something called "skip connections". You see, normal neural networks pass information from one layer to the next in sequence, 
+but ResNets also include shortcuts that allow information to skip layers. This helps solve the problem of vanishing gradients that can make very deep networks hard to train. They replaced the original classification 
+head with a series of fully connected layers that progressively reduce the dimensionality of the data. It is a groundbreaking deep Convolutional Neural Network (CNN) architecture introduced in 2015 that allows for the training of extremely deep networks 
+(often with hundreds or thousands of layers) without suffering from performance degradation.
+
+Convolutional Neural Network (CNN) - a specialized deep learning model designed to process data with grid-like topologies, such as images. It uses mathematical filters to automatically extract spatial hierarchies of features—from simple edges to complex objects—making 
+it the foundational architecture for computer vision
+
+Source| THE FOLLOWING ARTICLE IS OPEN ACCESS
+COSMIC: A Galaxy Cluster–Finding Algorithm Using Machine Learning
+Da-Chuan Tian, Yang Yang, Zhong-Lue Wen, and Jun-Qing Xia
+Published 2025 January 8 • © 2025. The Author(s). Published by the American Astronomical Society.
+The Astrophysical Journal Supplement Series, Volume 276, Number 1
+Citation Da-Chuan Tian et al 2025 ApJS 276 21
+DOI 10.3847/1538-4365/ad8bbd
+Tags| Clustering + CNN Convolutional Neural Network + computer vision + decision trees 
+
+
 WK1| 5.12.26
 
 EPS Short Reflections | The attribution crisis in LLM search results: Estimating ecosystem exploitation
