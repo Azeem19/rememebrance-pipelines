@@ -38,6 +38,9 @@ project for classical ML, it stil means that human descernment is important.
  
 Key Insight| 
 
+Again another way to think about evaluation as a service for AI efficacy, Prompt Engineering Performance Comparison is a major way thi paper showcases value and can be a quikc lift 
+for cypher to offer clients, plus solution, thus engineering our solution lifecycle with measurable outcomes. 
+
 APE makes LLM-based information extraction practical for noisy, variable business documents where hard-coded methods fail. But the broader lesson is that document AI isn't just about better OCR or bigger models, 
 it's about how you orchestrate them with prompts, rules, and human-in-the-loop calibration to handle the real-world messiness that lab benchmarks hide.
 
