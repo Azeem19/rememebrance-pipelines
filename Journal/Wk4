@@ -2,7 +2,7 @@ What did data sovereignty mean this week, in code?
 
 ENTRY KEYS: 
 defining data sovereignity --  DEFINE(data + sovereignity) 
-
+defining "cy coding" -- DEFINE(vibe coding + hip hop principles of call and response) 
 DEFINE
 (+) data: direct monetizable information, often unstructured and accumulated over the course of "doing" and "being". _DEFINITION SOURCED_ READING FROM CYPHER X BUILD FOUNDATIONAL READING OF "Infonomics" Douglas B. Laney  
 → Learn to treat data as an asset class that can be valued, managed, and monetized. (source:https://drive.google.com/file/d/1dk7fsBDqHb3RChO8UTfBEx8KmzU6YmG2/view?usp=drivesdk)
@@ -25,12 +25,36 @@ and holding absolte authority in how the information they produce is valued, man
 → Learn to ask, "What data/knowledge do I have that others don't?"
 → Learn to ask, "How can we use information (my data + external sources) to make better/faster decisions? 
 → Learn to ask, "What questions can we ask now that couldn’t be addressed earlier (before we knew the value of my informamtion)?"
+
 Takeaway: 
 - data sovereignty is about ppl and communities of data producers, and information holders having an inherit and supreme control over how the information they produce, exchange, and accumulate. 
 - data sovereighty allows individual ppl to live a rich life, where they can trust, have access and feel secure about the information they value and is valued in the society they live in. 
 - determining value of information is a dialectic, but who benefits from data's value should be determined by the creator of the information and the community
 - the power to preserve and license information lie in the individual producer, not the owner of the medium through with information is transfered or held
 - language, art, and math afford all individuals the mediums to express, share, and accumulate data, and thus produce knowledge that holds value for how an individual, institution, or society 
+
+(+) cy coding (Cyclical + Always have a "Why"): taking the practices of 'vibe coding' and producing a human + ai workflow built techniques that maximizing LLMs "dialect" UI
+and produce cyclical, reliable outputs. By emphasizing (1) clear and systematized "call-and-response" protocols aligned 
+to (2) Context engineering rooted in folder (Van Clief methodology), (3.i) markdown structures sycned to (3.ii) automated and prompt driven feedback loops 
+(4) and digital human readable measurement and evalution tools focused on:
+- attribution gaps
+- user driven context rot
+- OKRs aligned to AI productively amplificaiton
+- token economics 
+- data risk (leaks, permission breaks, hallucination, user learned helplessness) 
+
+Week X.  Q: What did data sovereignty mean this week, in code? 
+
+WkX Summary: 
+
+
+In Relation: 
+personal 
+interpersonal 
+interoperable 
+cypher 
+rememberance
+
 
 Wk3 recap:
 
@@ -67,6 +91,49 @@ students share ideas, connect over space & time.
 3. GenAI can be a SPRINGBOARD for highly creative ppl AND a CRUTCH for low creativity ppl
 
 
+Week 4.  Q: What did data sovereignty mean this week, in code? “What did the rig actually change?”
+
 Wk4 Summary: 
 
+What got done this week: 
 
+Technical infrastructure modifications
+	•	✅ Mac Mini M4 secured + set up fresh
+	•	✅ Full rig live — iPad + Tailscale + Blink Shell + Mac Mini
+	•	✅ Claude Code CLI running natively on the Mini
+	•	✅ Ollama installed for local LLMs
+	•	✅ All 3 repos cloned to Mini
+	•	✅ Blink Shell SSH connection resolved
+Strategic modification 
+	•	✅ Books ordered (Data Feminism, Black Quantum Futurism Theory & Practice, Indigenous Data Sovereignty and Policy, Urgent Archives)
+	•	✅ Context engineering research delivered (Van Clief methodology)
+	•	✅ cypher-context/ migration architecture designed
+	•	✅ Business partner infographic created
+	•	✅ Dancho DS4B 101P Modules 1–3
+
+This week as about putting principles to action in a new way. In prior weeks we've been incorporating and vetting tools that can satify our parameters. 
+Now we've built our own solutions, incorporated the better hardware into our tech stack, produced a localized llm and have begun to move our Claude.ai work flow
+over to our mac mini to take advantage of claude code and other llm tools. Our ability to connectve via ClI allows for higher overall performance and the ability to 
+stretch our tehcnical creative. 
+
+Blink Shell SSh connections, with the Tailscale implementation, have allows for cypher/ me to work fully remote. And access the mac mini for internal. we'll be 
+prototyping how to convert this into a service + tech offering. I'm also learning that I can make utility based hardware that serves the promise of ai with Cypher's 
+gurantee for local control. 
+
+I've coined a term cy coding. see definition above. which fits nicely into ho i'll be using van clief methodology to maximize the resources i'm spending rather than 
+resor to "maxing limits".  The migration of context from claude.ai to claude cowork/code is going to transform our tokenization effficency and how we're able to access
+our device, and tools remotely through claude... as long as I have tokens. Thus the Blink shell + ollama gives us a backseat tool to access LLMs power without token
+limits. This is a product I am marketing, and want to take broadly. Seun, Dad, and Carlene and I have deviced deployment ideas as consults for both cypher and remembrance. 
+Learning python automations along side claude has helped with the gaps in the content and helps ensure what I know is impactful learning for our work and 
+gives me a chance to deepen the data science tech stack. 
+
+
+In Relation: 
+personal - This week has been really great for my confidence in designing building and completing a project. This project was also a directly useable solution 
+which allows me to operationalize my work vision more clearly. 
+interpersonal - I intent to share this with my friends and potentially build out their rigs too, as a better onboarding to cypher for ai deployment and management
+I think that this allows me to demo all my tools in a casual way. Show the future is right in front of us.
+interoperable - now that I can log into my mac mini terminal, claude CLI, ollama, and Github anywhere is my office and all implementations are more or less in my
+complete control. I can also do experiment, and build connection points from other devices for remembrance work or/and mesh networks!
+cypher - we can run the whole coding production line/ operations/ have a new product / can now compete in AI dollars but with our mission in tact.
+rememberance - we can build full end to end encrpyted tech for Remembrance storytelling that ensures local control and flexible deployment (church computer, school lab, a smart phone in a village outside Cairo) 
