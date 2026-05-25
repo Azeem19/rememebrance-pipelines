@@ -24,7 +24,8 @@ Tags|
 
 Wk2 | 5.24.26
 
-EPS Short Reflections |
+EPS Short Reflections | Evaluating and addressing demographic
+disparities in medical large language models: a systematic review
 Prompt:
 
 Response: 
@@ -52,8 +53,6 @@ Result: Reduced gender bias in legal text while maintaining performance.
 
 (vii) Debiasing Algorithm: Context-Debias Algorithm
 Result: Reduced biased predictions in masked language models.
-
-
 
 Biases in LLM-generated recommendations can have tangible consequences for clinical outcomes. For instance, over-triaging marginalized populations could
 strain already limited healthcare resources and potentially result in unnecessary interventions, contributing to an estimated $760–935 billion in annual waste in the U.S. healthcare system [44]
@@ -107,7 +106,7 @@ Socio Econ Bias in LLMS
 
 
 ===
-Terms|
+Terms| 
 
 Demographic biases - be based on various factors from sex and gender to socioeconomics, race, sexuality, language, or others. 
 These biases don't just come from personal experience but are institutional and systematic as well. Institutional policies and practices, educational gaps, a lack of diversity among healthcare professionals, 
@@ -129,8 +128,9 @@ PRISMA (Preferred Reporting Items for Systematic Reviews and MetaAnalysis) guide
 to reporting the criteria that determined which studies were selected or rejected, data collection, potential biases, and how the results impact the field. Having a determined checklist builds more trust in systematic review and meta-analysis across any field.
 
 
-Source| 
-Tags|
+Source| Evaluating and addressing demographic
+disparities in medical large language models: a systematic review - Mahmud Omar1*, Vera Sorin2, Reem Agbareia3, Donald U. Apakama4, Ali Soroush1, Ankit Sakhuja1,4, Robert Freeman,Carol R. Horowitz5, Lynne D. Richardson5, Girish N. Nadkarni1,4† and Eyal Klang1,4†
+Tags| bias + prisma + conplexity bias
 
 
 EPS Short Reflections | Evaluation of Prompt Engineering on the Performance of a Large Language Model in Document Information Extraction
