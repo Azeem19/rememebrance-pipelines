@@ -24,6 +24,45 @@ Tags|
 
 Wk2 | 5.24.26
 
+EPS Short Reflections |
+Prompt:
+
+Response: 
+Key Insight| 
+
+92% of the studies identified bias in LLMs. Different studies focused on different biases
+conducted a systematic review of LLMs to see if they contained biases and which were most prevalent
+explore how the authors used the PRISMA guidelines and JBI Critical Appraisal Tools
+mitigation tools that can help reduce bias in AI
+
+
+===
+Terms|
+
+Demographic biases - be based on various factors from sex and gender to socioeconomics, race, sexuality, language, or others. 
+These biases don't just come from personal experience but are institutional and systematic as well. Institutional policies and practices, educational gaps, a lack of diversity among healthcare professionals, 
+and a simple lack of understanding cultural differences can all contribute to implicit bias in medicine.
+
+Explicit bias - a conscious bias, meaning that the actor is well aware of their bias and holds conscious beliefs about certain groups. Sexism and racism influencing interactions with patients would be explicit bias.
+Implicit bias - unconscious, meaning the actor doesn't think they actually have any biases towards a certain group. Implicit bias is a bit more complex, and is more common in the majority of healthcare workers who really do intend on treating everyone the same. 
+It is important to note that implicit bias is not normally malicious, deliberate, or even obvious, because again, the actor is not aware that bias exists.
+
+Training data Bias - the model can occur from things like a lack of diversity in training data and underrepresentation of certain groups or outdated/incorrect facts in that data.A lack of data leads to AI generalizing in inequitable ways that do not account for groups that belong to the minority. 
+For example, if an LLM meant to offer diagnosis about heart attacks has 100 data points for male heart attack symptoms and only 20 for females symptoms, women are more likely to be misdiagnosed.
+ML also works by learning from past data, and building on that data. So, if it is trained on biased data it will continue to perpetuate those biases, because that is what it has been trained to do. For example, if a racial group has been routinely denied advanced imaging for diagnosis in the past, 
+the model is likely to continue not offering advanced imaging for the same group
+
+Model fit/complexity bias - In the world of AI, we use the term "bias" slightly unconventionally. Bias in your model means that it has failed to properly learn the patterns in the data. When this happens, it might be able to make good predictions for some groups, and terrible predictions for others. 
+Bias could also come from structural problems in the model design, or issues with interpretation
+
+PRISMA (Preferred Reporting Items for Systematic Reviews and MetaAnalysis) guidelines is a detailed checklist that ensures that reviews are both transparent, reproducible, and complete. PRISMA provides guidelines for each section of the systematic review, from explaining the reasoning for the review, 
+to reporting the criteria that determined which studies were selected or rejected, data collection, potential biases, and how the results impact the field. Having a determined checklist builds more trust in systematic review and meta-analysis across any field.
+
+
+Source| 
+Tags|
+
+
 EPS Short Reflections | Evaluation of Prompt Engineering on the Performance of a Large Language Model in Document Information Extraction
 Prompt: What does this teach me about non-extraction and community ownership?
 
