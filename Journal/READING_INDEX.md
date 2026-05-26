@@ -16,7 +16,8 @@ Entries follow the schema documented at the bottom of this file.
 ### Evaluating and Addressing Demographic Disparities in Medical Large Language Models: A Systematic Review
 - **Theme:** Explainable AI & Fairness
 - **Tags:** demographic-bias, prisma, jbi-critical-appraisal, debiasing-algorithm, prompt-engineering, gender-bias, racial-bias, socioeconomic-bias, healthcare-llm, systematic-review
-- **Source:** Omar, Sorin, Agbareia, Apakama, Soroush, Sakhuja, Freeman, Horowitz, Richardson, Nadkarni, Klang. *Evaluating and addressing demographic disparities in medical large language models: a systematic review.* [NEEDS DOI CONFIRMATION]
+- **Source:** Omar, Sorin, Agbareia, Apakama, Soroush, Sakhuja, Freeman, Horowitz, Richardson, Nadkarni, Klang. *Evaluating and addressing demographic disparities in medical large language models: a systematic review.* doi.org/10.1186/s12939-025-02419-0 International Journal for Equity in Health
+  
 - **Applies to artifacts:**
   - Artifact #5 — Grant-Fit Scoring Agent (bias audit layer)
   - Artifact #4 — Ancestor Search RAG (demographic refusal logic)
