@@ -1,0 +1,458 @@
+<!-- REMEMBRANCE MESH — Three Phygital Storyboards. Pure CSS/HTML, WordPress-safe.
+     This is the deployable source for the WordPress site (external Google Fonts
+     load fine there). A CSP-safe variant with system-serif fallbacks is what
+     ships to the published Claude Artifact — see mesh/ARCHITECTURE.md. -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.rm-wrap{--deep:#0D1B17;--sage:#2D5A52;--sage-lt:#3A7A6F;--gold:#D4A017;--gold-lt:#E8C44A;--cream:#F5F0E8;--parch:#E8DFC8;--tan:#D2B48C;--crimson:#C13B2E;
+font-family:'Source Sans 3',-apple-system,sans-serif;background:radial-gradient(ellipse at 50% 0%,#12271F 0%,var(--deep) 60%,#080F0C 100%);color:var(--cream);margin:0;padding:0;box-sizing:border-box;line-height:1.5;overflow-x:hidden}
+.rm-wrap *{box-sizing:border-box;margin:0;padding:0}
+.rm-wrap .disp{font-family:'Playfair Display',Georgia,serif}
+
+/* ==== HEADER ==== */
+.rm-head{padding:34px 26px 20px;text-align:center;border-bottom:1px solid rgba(212,160,23,.22);background:linear-gradient(180deg,rgba(13,27,23,.6),transparent)}
+.rm-kicker{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+.rm-title{font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:clamp(30px,6vw,52px);line-height:1.02;letter-spacing:.5px;color:var(--cream)}
+.rm-title em{font-style:italic;color:var(--gold-lt)}
+.rm-sub{margin-top:14px;font-size:14px;color:rgba(245,240,232,.6);max-width:600px;margin-left:auto;margin-right:auto}
+.rm-provenance{margin-top:16px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.35)}
+
+/* ==== KENTE STRIP (signature border motif) ==== */
+.rm-kente{height:8px;width:100%;background:repeating-linear-gradient(90deg,var(--gold) 0 14px,var(--sage) 14px 22px,var(--crimson) 22px 26px,var(--deep) 26px 34px,var(--gold-lt) 34px 40px,var(--sage-lt) 40px 48px)}
+
+/* ==== TABS (pure CSS radio) ==== */
+.rm-wrap input[type=radio]{position:absolute;opacity:0;pointer-events:none;width:0;height:0}
+.rm-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:24px 20px 8px;max-width:960px;margin:0 auto}
+.rm-nav label{display:flex;flex-direction:column;align-items:flex-start;gap:3px;cursor:pointer;padding:12px 20px;border:1px solid rgba(212,160,23,.28);border-radius:3px;background:rgba(45,90,82,.12);transition:all .25s;min-width:210px}
+.rm-nav label:hover{background:rgba(45,90,82,.28);border-color:rgba(212,160,23,.5)}
+.rm-nav .n-num{font-family:'Playfair Display',Georgia,serif;font-size:11px;letter-spacing:2px;color:var(--gold)}
+.rm-nav .n-name{font-family:'Playfair Display',Georgia,serif;font-size:17px;font-weight:700;color:var(--cream)}
+.rm-nav .n-desc{font-size:10px;color:rgba(245,240,232,.5);letter-spacing:.5px}
+#rm1:checked~.rm-navwrap .rm-nav label[for=rm1],
+#rm2:checked~.rm-navwrap .rm-nav label[for=rm2],
+#rm3:checked~.rm-navwrap .rm-nav label[for=rm3]{background:linear-gradient(135deg,rgba(212,160,23,.22),rgba(212,160,23,.1));border-color:var(--gold)}
+#rm1:checked~.rm-navwrap .rm-nav label[for=rm1] .n-name,
+#rm2:checked~.rm-navwrap .rm-nav label[for=rm2] .n-name,
+#rm3:checked~.rm-navwrap .rm-nav label[for=rm3] .n-name{color:var(--gold-lt)}
+
+/* ==== STORY PANELS ==== */
+.rm-story{display:none;padding:26px 20px 60px;max-width:1120px;margin:0 auto;animation:rmFade .5s ease}
+@keyframes rmFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+#rm1:checked~.rm-body #rm-s1,
+#rm2:checked~.rm-body #rm-s2,
+#rm3:checked~.rm-body #rm-s3{display:block}
+
+.rm-storyhead{text-align:center;margin-bottom:30px;padding:0 10px}
+.rm-storyhead .sh-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:600}
+.rm-storyhead .sh-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,4.5vw,38px);font-weight:800;color:var(--cream);margin-top:8px;font-style:italic}
+.rm-storyhead .sh-line{font-size:14px;color:rgba(245,240,232,.6);margin-top:10px;max-width:620px;margin-left:auto;margin-right:auto}
+
+/* ==== PANEL GRID ==== */
+.rm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:760px){.rm-grid{grid-template-columns:1fr}}
+.rm-panel{background:linear-gradient(150deg,rgba(45,90,82,.16),rgba(13,27,23,.5));border:1px solid rgba(212,160,23,.2);border-radius:5px;padding:22px;position:relative;overflow:hidden;min-height:210px;display:flex;flex-direction:column}
+.rm-panel.wide{grid-column:1/-1}
+.rm-pnum{font-family:'Playfair Display',Georgia,serif;font-size:44px;font-weight:900;line-height:.8;color:rgba(212,160,23,.22);position:absolute;top:14px;right:18px}
+.rm-plabel{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px;position:relative;z-index:2}
+.rm-pscene{font-size:14px;color:rgba(245,240,232,.82);line-height:1.6;position:relative;z-index:2;flex:1}
+.rm-pscene strong{color:var(--gold-lt);font-weight:600}
+.rm-pcaption{margin-top:14px;padding-top:12px;border-top:1px solid rgba(212,160,23,.16);font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:15px;color:var(--cream);position:relative;z-index:2}
+
+/* tech callout chip */
+.rm-tech{display:inline-flex;flex-wrap:wrap;gap:5px;margin-top:12px;position:relative;z-index:2}
+.rm-chip{font-size:9.5px;letter-spacing:.5px;background:rgba(58,122,111,.28);border:1px solid rgba(58,122,111,.45);color:var(--gold-lt);padding:3px 8px;border-radius:3px;font-weight:500}
+
+/* ==== SIGNATURE: GLOW LEXICON ==== */
+.rm-glowbox{grid-column:1/-1;background:radial-gradient(ellipse at 50% 40%,rgba(45,90,82,.3),rgba(13,27,23,.6));border:1px solid rgba(212,160,23,.28);border-radius:5px;padding:28px 22px}
+.rm-glow-title{text-align:center;font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:700;color:var(--gold-lt);font-style:italic;margin-bottom:6px}
+.rm-glow-sub{text-align:center;font-size:12px;color:rgba(245,240,232,.55);margin-bottom:28px}
+.rm-glow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:680px){.rm-glow-grid{grid-template-columns:repeat(2,1fr)}}
+.rm-glow-cell{text-align:center}
+.rm-orb{width:66px;height:66px;margin:0 auto 14px;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center}
+.rm-orb::before,.rm-orb::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--gold);opacity:0}
+.orb-steady{background:radial-gradient(circle,var(--gold-lt) 0%,var(--gold) 45%,rgba(212,160,23,.2) 100%);box-shadow:0 0 18px rgba(212,160,23,.7),0 0 34px rgba(212,160,23,.35);animation:orbSteady 3s ease-in-out infinite}
+@keyframes orbSteady{0%,100%{box-shadow:0 0 18px rgba(212,160,23,.6),0 0 30px rgba(212,160,23,.3)}50%{box-shadow:0 0 24px rgba(212,160,23,.9),0 0 46px rgba(212,160,23,.5)}}
+.orb-pulse{background:radial-gradient(circle,var(--sage-lt) 0%,var(--sage) 55%,rgba(45,90,82,.2) 100%)}
+.orb-pulse::before{border-color:var(--sage-lt);animation:orbRing 2s ease-out infinite}
+.orb-pulse::after{border-color:var(--sage-lt);animation:orbRing 2s ease-out infinite .7s}
+@keyframes orbRing{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.7);opacity:0}}
+.orb-update{background:radial-gradient(circle,var(--gold-lt) 0%,var(--sage) 70%);animation:orbBlink 1.4s steps(1) infinite}
+@keyframes orbBlink{0%,49%{box-shadow:0 0 20px rgba(232,196,74,.8)}50%,100%{box-shadow:0 0 4px rgba(232,196,74,.15)}}
+.orb-fade{background:radial-gradient(circle,var(--crimson) 0%,#7a241b 70%);animation:orbFade 4s ease-in-out infinite}
+@keyframes orbFade{0%,100%{opacity:.28}50%{opacity:1;box-shadow:0 0 22px rgba(193,59,46,.6)}}
+.rm-orb .glyph{font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:22px;color:var(--deep);position:relative;z-index:3}
+.rm-glow-cell .gc-name{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:14px;color:var(--cream)}
+.rm-glow-cell .gc-mean{font-size:11px;color:rgba(245,240,232,.6);margin-top:4px;line-height:1.4}
+
+/* ==== HOP DIAGRAM (storyboard 2) ==== */
+.rm-hop{grid-column:1/-1;background:linear-gradient(150deg,rgba(45,90,82,.14),rgba(13,27,23,.5));border:1px solid rgba(212,160,23,.22);border-radius:5px;padding:26px 20px}
+.rm-hop-title{text-align:center;font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:700;color:var(--gold-lt);font-style:italic;margin-bottom:24px}
+.rm-hop-flow{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px}
+.rm-node{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:96px}
+.rm-node-ic{width:54px;height:54px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:24px;border:2px solid;position:relative}
+.rm-node-ic.client{border-color:var(--sage-lt);background:rgba(58,122,111,.2)}
+.rm-node-ic.router{border-color:var(--gold);background:rgba(212,160,23,.18)}
+.rm-node-ic.repeater{border-color:var(--crimson);background:rgba(193,59,46,.15)}
+.rm-node-ic.rig{border-color:var(--cream);background:rgba(245,240,232,.1)}
+.rm-node-nm{font-size:10px;font-weight:700;color:var(--cream);letter-spacing:.5px;text-align:center}
+.rm-node-rl{font-size:9px;color:rgba(245,240,232,.5);text-transform:uppercase;letter-spacing:1px}
+.rm-hop-arrow{display:flex;flex-direction:column;align-items:center;color:var(--gold);min-width:56px}
+.rm-hop-arrow .env{font-size:18px;animation:envMove 2s ease-in-out infinite}
+@keyframes envMove{0%,100%{transform:translateX(-4px);opacity:.5}50%{transform:translateX(4px);opacity:1}}
+.rm-hop-arrow .hn{font-size:9px;color:rgba(245,240,232,.55);margin-top:2px}
+.rm-hop-note{text-align:center;margin-top:22px;font-size:12px;color:rgba(245,240,232,.6);font-style:italic}
+.rm-hop-note strong{color:var(--gold-lt);font-style:normal}
+
+/* ==== PAYLOAD CARDS (storyboard 2) ==== */
+.rm-payload{grid-column:1/-1}
+.rm-payload-hd{text-align:center;font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:700;color:var(--gold-lt);font-style:italic;margin-bottom:6px}
+.rm-payload-sub{text-align:center;font-size:11px;color:rgba(245,240,232,.5);margin-bottom:20px;letter-spacing:.5px}
+.rm-payload-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:680px){.rm-payload-grid{grid-template-columns:1fr}}
+.rm-pkt{background:rgba(13,27,23,.55);border:1px dashed rgba(212,160,23,.4);border-radius:4px;padding:14px}
+.rm-pkt-ic{font-size:20px;margin-bottom:8px}
+.rm-pkt-nm{font-weight:700;font-size:13px;color:var(--cream);margin-bottom:4px}
+.rm-pkt-ex{font-size:11px;color:rgba(245,240,232,.6);line-height:1.45;font-style:italic}
+.rm-pkt-sz{font-size:9px;color:var(--gold);letter-spacing:1px;margin-top:8px;text-transform:uppercase}
+
+/* ==== TIER LOCKS (storyboard 2) ==== */
+.rm-tiers{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:680px){.rm-tiers{grid-template-columns:1fr}}
+.rm-tier{border-radius:5px;padding:20px;border:1px solid}
+.rm-tier.held{background:linear-gradient(150deg,rgba(45,90,82,.24),rgba(13,27,23,.4));border-color:var(--sage-lt)}
+.rm-tier.trust{background:linear-gradient(150deg,rgba(212,160,23,.14),rgba(13,27,23,.4));border-color:var(--gold)}
+.rm-tier.commons{background:linear-gradient(150deg,rgba(232,196,74,.1),rgba(13,27,23,.4));border-color:var(--gold-lt)}
+.rm-tier .t-lock{font-size:22px;margin-bottom:10px}
+.rm-tier .t-name{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:16px;color:var(--cream)}
+.rm-tier .t-desc{font-size:11.5px;color:rgba(245,240,232,.65);margin-top:8px;line-height:1.5}
+
+/* ==== PIPELINE FLOW (storyboard 3) ==== */
+.rm-pipe{grid-column:1/-1;background:linear-gradient(150deg,rgba(45,90,82,.14),rgba(13,27,23,.5));border:1px solid rgba(212,160,23,.22);border-radius:5px;padding:26px 20px}
+.rm-pipe-hd{text-align:center;font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:700;color:var(--gold-lt);font-style:italic;margin-bottom:22px}
+.rm-pipe-flow{display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap;gap:8px}
+.rm-pstep{flex:1;min-width:120px;max-width:170px;background:rgba(13,27,23,.5);border:1px solid rgba(212,160,23,.25);border-radius:5px;padding:14px 12px;text-align:center;position:relative}
+.rm-pstep .ps-ic{font-size:24px;margin-bottom:8px}
+.rm-pstep .ps-who{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:5px}
+.rm-pstep .ps-do{font-size:11.5px;color:rgba(245,240,232,.75);line-height:1.4}
+.rm-pipe-arrow{display:flex;align-items:center;color:var(--gold);font-size:18px}
+@media(max-width:680px){.rm-pipe-arrow{transform:rotate(90deg)}}
+
+/* ==== FUNDING STACK (storyboard 3) ==== */
+.rm-fund{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:680px){.rm-fund{grid-template-columns:1fr}}
+.rm-fcol{border-radius:5px;padding:20px;border:1px solid rgba(212,160,23,.25);background:linear-gradient(150deg,rgba(45,90,82,.14),rgba(13,27,23,.45))}
+.rm-fcol .f-src{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:15px;color:var(--gold-lt)}
+.rm-fcol .f-amt{font-size:12px;color:var(--gold);margin-top:4px;font-weight:600}
+.rm-fcol .f-for{font-size:11.5px;color:rgba(245,240,232,.65);margin-top:10px;line-height:1.5}
+
+/* ==== FOOTER ==== */
+.rm-foot{padding:28px 24px 40px;text-align:center;border-top:1px solid rgba(212,160,23,.18);background:rgba(13,27,23,.6)}
+.rm-foot-q{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(16px,3vw,22px);color:var(--cream);max-width:640px;margin:0 auto 12px;line-height:1.4}
+.rm-foot-src{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.4)}
+.rm-foot-note{font-size:11px;color:rgba(245,240,232,.35);margin-top:16px;max-width:640px;margin-left:auto;margin-right:auto;line-height:1.5}
+</style>
+
+<div class="rm-wrap">
+<div class="rm-kente"></div>
+
+<div class="rm-head">
+  <div class="rm-kicker">Cypher × Remembrance · Phygital Infrastructure</div>
+  <h1 class="rm-title disp">The Remembrance <em>Mesh</em></h1>
+  <p class="rm-sub">A community-owned, off-grid network where memory lives at the edge and travels only by consent. Meshtastic + LoRa + NFC, built by the block's own youth.</p>
+  <div class="rm-provenance">Three Storyboards · No Cloud · No App · No Account</div>
+</div>
+
+<input type="radio" name="rm-tabs" id="rm1" checked>
+<input type="radio" name="rm-tabs" id="rm2">
+<input type="radio" name="rm-tabs" id="rm3">
+
+<div class="rm-navwrap">
+  <div class="rm-nav">
+    <label for="rm1"><span class="n-num disp">STORYBOARD ONE</span><span class="n-name disp">The Elder's Tap</span><span class="n-desc">The totem + token ritual</span></label>
+    <label for="rm2"><span class="n-num disp">STORYBOARD TWO</span><span class="n-name disp">The Mesh as Civic Backbone</span><span class="n-desc">Peer-to-peer cooperative economics</span></label>
+    <label for="rm3"><span class="n-num disp">STORYBOARD THREE</span><span class="n-name disp">The Apprentice Pipeline</span><span class="n-desc">Youth build the hardware</span></label>
+  </div>
+</div>
+
+<div class="rm-body">
+
+<!-- ============ STORYBOARD 1 ============ -->
+<div class="rm-story" id="rm-s1">
+  <div class="rm-storyhead">
+    <div class="sh-eyebrow">Storyboard One</div>
+    <div class="sh-title disp">The Elder's Tap</div>
+    <div class="sh-line">Saturday afternoon on the WestEnd. Mr. Ellis Hargrove — 78, retired master carpenter, "Held Close" — walks to a Hot Chair coffee shop. What happens between him and the network in a single tap.</div>
+  </div>
+
+  <div class="rm-grid">
+    <div class="rm-panel">
+      <div class="rm-pnum disp">1</div>
+      <div class="rm-plabel">Approach</div>
+      <div class="rm-pscene">A wide sidewalk. Mr. Hargrove walks toward the corner shop, cane in hand, unhurried. No phone in sight. The block already holds his history — five years of it.</div>
+      <div class="rm-pcaption disp">"Memory arrives on foot."</div>
+    </div>
+
+    <div class="rm-panel">
+      <div class="rm-pnum disp">2</div>
+      <div class="rm-plabel">The Totem in the Window</div>
+      <div class="rm-pscene">In the shop window sits a hand-built wooden totem, bird-feeder scale, stamped with the <strong>Sankofa</strong> glyph. A small solar panel catches the light. Inside: a mesh node no one can see.</div>
+      <div class="rm-tech">
+        <span class="rm-chip">Meshtastic node</span><span class="rm-chip">LoRa radio</span><span class="rm-chip">solar-trickle</span><span class="rm-chip">NFC behind wood face</span>
+      </div>
+      <div class="rm-pcaption disp">"Built by the block's own youth."</div>
+    </div>
+
+    <div class="rm-panel">
+      <div class="rm-pnum disp">3</div>
+      <div class="rm-plabel">The Token, Chosen at Consent</div>
+      <div class="rm-pscene">He carries his network token in the form he chose at his consent session: a <strong>laminated card</strong>, a <strong>woven wristband</strong>, or a <strong>patch sewn into his jacket cuff</strong>. Leather, wood, fabric — never corporate plastic.</div>
+      <div class="rm-pcaption disp">"His network, his form, his terms."</div>
+    </div>
+
+    <div class="rm-panel">
+      <div class="rm-pnum disp">4</div>
+      <div class="rm-plabel">The Tap</div>
+      <div class="rm-pscene">He rests his cuff against the totem's face. The NFC reader wakes. Concentric arcs ripple outward. No screen unlocks. No password. No account was ever created.</div>
+      <div class="rm-pcaption disp">"One tap. No app. No account."</div>
+    </div>
+
+    <div class="rm-panel">
+      <div class="rm-pnum disp">5</div>
+      <div class="rm-plabel">The Tab Opens</div>
+      <div class="rm-pscene">Behind the counter, his usual order launches — not because the shop knows his name, but because the network recognizes that <strong>an elder of his tier has arrived to be served</strong>. The totem warms to a steady glow.</div>
+      <div class="rm-pcaption disp">"The network knows a knowledge-holder is here."</div>
+    </div>
+
+    <div class="rm-panel">
+      <div class="rm-pnum disp">6</div>
+      <div class="rm-plabel">You're Seen</div>
+      <div class="rm-pscene">The glow is a language. Steady means <strong>you're seen</strong>. A pulse means someone in-network is near. A blink means an update waits. A slow fade means he can <strong>leave a piece of his story here</strong> — a dead-drop for someone to pick up later.</div>
+      <div class="rm-pcaption disp">"A porch light for memory."</div>
+    </div>
+
+    <div class="rm-glowbox">
+      <div class="rm-glow-title disp">The Glow Lexicon</div>
+      <div class="rm-glow-sub">One totem. Four states of light. No words required.</div>
+      <div class="rm-glow-grid">
+        <div class="rm-glow-cell">
+          <div class="rm-orb orb-steady"><span class="glyph">◉</span></div>
+          <div class="gc-name disp">Steady</div>
+          <div class="gc-mean">You're seen. Your tab is open.</div>
+        </div>
+        <div class="rm-glow-cell">
+          <div class="rm-orb orb-pulse"><span class="glyph">◈</span></div>
+          <div class="gc-name disp">Pulse</div>
+          <div class="gc-mean">Someone in-network is nearby.</div>
+        </div>
+        <div class="rm-glow-cell">
+          <div class="rm-orb orb-update"><span class="glyph">✦</span></div>
+          <div class="gc-name disp">Blink</div>
+          <div class="gc-mean">An update is waiting for you.</div>
+        </div>
+        <div class="rm-glow-cell">
+          <div class="rm-orb orb-fade"><span class="glyph">❋</span></div>
+          <div class="gc-name disp">Slow Fade</div>
+          <div class="gc-mean">Leave a piece of your story here.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rm-panel">
+      <div class="rm-pnum disp">7</div>
+      <div class="rm-plabel">The Hop</div>
+      <div class="rm-pscene">The signal leaves the totem, hops to the <strong>light-pole repeater</strong>, then to the <strong>library archive rig</strong>. Presence is logged by <strong>tier, not name</strong>. The packet travels as a sealed gold envelope — the repeater carries it but cannot open it. It syncs at night, by consent.</div>
+      <div class="rm-tech"><span class="rm-chip">presence = tier only</span><span class="rm-chip">encrypted relay</span><span class="rm-chip">nightly consent sync</span></div>
+      <div class="rm-pcaption disp">"It travels only by consent."</div>
+    </div>
+
+    <div class="rm-panel">
+      <div class="rm-pnum disp">8</div>
+      <div class="rm-plabel">Memory Pays</div>
+      <div class="rm-pscene">The community-owned ledger tallies <strong>elder bench hours served</strong>. That number feeds three things: the dashboards, the grant reports that keep money on the block, and coffee perks redeemable across <strong>every</strong> network site.</div>
+      <div class="rm-pcaption disp">"Enough stories shared earns coffee across the whole network. Memory literally pays."</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STORYBOARD 2 ============ -->
+<div class="rm-story" id="rm-s2">
+  <div class="rm-storyhead">
+    <div class="sh-eyebrow">Storyboard Two</div>
+    <div class="sh-title disp">The Mesh as Civic Backbone</div>
+    <div class="sh-line">Repeaters on light poles, library roofs, and church steeples. Off-grid, community-owned, no telecom dependency. The connective tissue of Black economic kinship — carrying small signals across the Moorestown–Camden–Wilmington corridor.</div>
+  </div>
+
+  <div class="rm-grid">
+    <div class="rm-panel wide">
+      <div class="rm-pnum disp">1</div>
+      <div class="rm-plabel">The Corridor Map</div>
+      <div class="rm-pscene">A hand-drawn map in the Du Bois manner: Moorestown, Camden, and Wilmington strung along the Delaware River. Nodes are gold dots. Repeaters are larger ringed dots, perched high — on poles, roofs, and steeples. No cell towers. No internet service provider. The network belongs to the block.</div>
+      <div class="rm-pcaption disp">"Off-grid. Community-owned. No telecom."</div>
+    </div>
+
+    <div class="rm-panel">
+      <div class="rm-pnum disp">2</div>
+      <div class="rm-plabel">Anatomy of a Repeater</div>
+      <div class="rm-pscene">A solar light-pole repeater, exploded into parts: LoRa radio, low-power microcontroller, antenna mounted high, a 5-watt panel, a battery. Silent. It publishes nothing of its own — <strong>a ghost on the mesh</strong> that only passes messages along.</div>
+      <div class="rm-tech"><span class="rm-chip">~$40–$130 per node</span><span class="rm-chip">nRF52840 · low sleep draw</span><span class="rm-chip">IP67 weatherproof</span></div>
+      <div class="rm-pcaption disp">"A whole node costs less than a month of cell service."</div>
+    </div>
+
+    <div class="rm-panel">
+      <div class="rm-pnum disp">3</div>
+      <div class="rm-plabel">Signals, Not Media</div>
+      <div class="rm-pscene">LoRa packets are tiny — a few hundred characters at most. So the mesh carries <strong>signals and fragments</strong>, never audio or video. The full story syncs later, by consent, through the library rig. The mesh only carries the signal that a story exists.</div>
+      <div class="rm-pcaption disp">"Small signals. Big kinship."</div>
+    </div>
+
+    <div class="rm-payload">
+      <div class="rm-payload-hd disp">What the Mesh Carries</div>
+      <div class="rm-payload-sub">Every payload fits in 240 bytes — the hard limit of a LoRa packet</div>
+      <div class="rm-payload-grid">
+        <div class="rm-pkt"><div class="rm-pkt-ic">❋</div><div class="rm-pkt-nm">Story dead-drop</div><div class="rm-pkt-ex">"A fragment waits at CIVIC on Eighth"</div><div class="rm-pkt-sz">pointer only</div></div>
+        <div class="rm-pkt"><div class="rm-pkt-ic">◈</div><div class="rm-pkt-nm">Cypher match signal</div><div class="rm-pkt-ex">"A formation is seeking a carpenter"</div><div class="rm-pkt-sz">match by category</div></div>
+        <div class="rm-pkt"><div class="rm-pkt-ic">⚒</div><div class="rm-pkt-nm">Co-op availability</div><div class="rm-pkt-ex">"Odessa: bench open · Amara: seeking hours"</div><div class="rm-pkt-sz">economic ping</div></div>
+        <div class="rm-pkt"><div class="rm-pkt-ic">⏳</div><div class="rm-pkt-nm">Grant deadline alert</div><div class="rm-pkt-ex">"NPS History of Equal Rights — July 21"</div><div class="rm-pkt-sz">glows at the edge</div></div>
+        <div class="rm-pkt"><div class="rm-pkt-ic">◉</div><div class="rm-pkt-nm">Presence beacon</div><div class="rm-pkt-ex">"An elder of the Held Close tier is here"</div><div class="rm-pkt-sz">tier, not name</div></div>
+        <div class="rm-pkt"><div class="rm-pkt-ic">✓</div><div class="rm-pkt-nm">Savings audit ping</div><div class="rm-pkt-ex">"This month's bench hours: verified"</div><div class="rm-pkt-sz">ledger update</div></div>
+      </div>
+    </div>
+
+    <div class="rm-hop">
+      <div class="rm-hop-title disp">How a Message Hops</div>
+      <div class="rm-hop-flow">
+        <div class="rm-node"><div class="rm-node-ic client">◉</div><div class="rm-node-nm">Totem</div><div class="rm-node-rl">Client</div></div>
+        <div class="rm-hop-arrow"><span class="env">✉</span><span class="hn">hop 3→2</span></div>
+        <div class="rm-node"><div class="rm-node-ic router">⛪</div><div class="rm-node-nm">Steeple</div><div class="rm-node-rl">Router</div></div>
+        <div class="rm-hop-arrow"><span class="env">✉</span><span class="hn">hop 2→1</span></div>
+        <div class="rm-node"><div class="rm-node-ic repeater">🏮</div><div class="rm-node-nm">Light Pole</div><div class="rm-node-rl">Repeater</div></div>
+        <div class="rm-hop-arrow"><span class="env">✉</span><span class="hn">hop 1→0</span></div>
+        <div class="rm-node"><div class="rm-node-ic rig">📚</div><div class="rm-node-nm">Library Rig</div><div class="rm-node-rl">Archive</div></div>
+      </div>
+      <div class="rm-hop-note">Max <strong>7 hops</strong> per message. Favorited routers create zero-cost hops that span the whole corridor. The envelope stays sealed end to end — <strong>every relay carries what it cannot read.</strong></div>
+    </div>
+
+    <div class="rm-tiers">
+      <div class="rm-tier held">
+        <div class="t-lock">🔒</div>
+        <div class="t-name disp">Held Close</div>
+        <div class="t-desc">The story stays yours. Stays local. The network matches on categories only — it never reads the memory itself.</div>
+      </div>
+      <div class="rm-tier trust">
+        <div class="t-lock">🔐</div>
+        <div class="t-name disp">In Trust</div>
+        <div class="t-desc">Cypher stewards the knowledge on your behalf, under agreement. Encrypted in transit, governed by consent.</div>
+      </div>
+      <div class="rm-tier commons">
+        <div class="t-lock">🔓</div>
+        <div class="t-name disp">In the Commons</div>
+        <div class="t-desc">The outcome joins the community-owned record — the ledger every node can see and every grant report can cite.</div>
+      </div>
+    </div>
+
+    <div class="rm-panel wide">
+      <div class="rm-pnum disp">7</div>
+      <div class="rm-plabel">The Connective Tissue</div>
+      <div class="rm-pscene">Lay a <strong>Kente weave</strong> over the map and the nodes become warp and weft — a woven thing, not a wired one. The grant node glows at the center like an anchor knot. This is what the mesh is really for: the connective tissue of Black economic kinship, off the grid and under local control.<br><br><strong>Precedent:</strong> NYC Mesh runs 2,000+ member-owned nodes. Detroit's Digital Stewards have trained 300+ builders across ages 21–80, reaching 500+ households. The model works. The RNN grows it city by city — every node built by that node's youth.</div>
+      <div class="rm-pcaption disp">"The mesh is the connective tissue of Black economic kinship."</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STORYBOARD 3 ============ -->
+<div class="rm-story" id="rm-s3">
+  <div class="rm-storyhead">
+    <div class="sh-eyebrow">Storyboard Three</div>
+    <div class="sh-title disp">The Apprentice Pipeline</div>
+    <div class="sh-line">The hardware doesn't come from a warehouse. Youth apprentices build the totems, tokens, and repeaters in the fabrication co-op — elder craft plus youth fabrication. Every build is heritage preservation, and every build is grant-fundable.</div>
+  </div>
+
+  <div class="rm-grid">
+    <div class="rm-panel wide">
+      <div class="rm-pnum disp">1</div>
+      <div class="rm-plabel">The Co-op Floor</div>
+      <div class="rm-pscene">Inside the WestEnd fabrication co-op: <strong>Odessa Rhodes</strong> at her upholstery station, third-generation. <strong>Jamal Winters</strong> at the CNC and laser bench. <strong>Mr. Hargrove</strong> teaching joinery to a circle of apprentices. <strong>Amara Fields</strong>, 17, modeling a totem in Blender on a laptop. Elder hands and young hands on the same piece.</div>
+      <div class="rm-pcaption disp">"Hardware manufacturing as heritage preservation."</div>
+    </div>
+
+    <div class="rm-pipe">
+      <div class="rm-pipe-hd disp">Elder Craft + Youth Fabrication = One Totem</div>
+      <div class="rm-pipe-flow">
+        <div class="rm-pstep"><div class="ps-ic">🪵</div><div class="ps-who">Raw material</div><div class="ps-do">Wood, leather, metal sourced local</div></div>
+        <div class="rm-pipe-arrow">→</div>
+        <div class="rm-pstep"><div class="ps-ic">🔨</div><div class="ps-who">Hargrove</div><div class="ps-do">Joinery — the elder's craft</div></div>
+        <div class="rm-pipe-arrow">→</div>
+        <div class="rm-pstep"><div class="ps-ic">⚙</div><div class="ps-who">Jamal</div><div class="ps-do">CNC + laser cut housing</div></div>
+        <div class="rm-pipe-arrow">→</div>
+        <div class="rm-pstep"><div class="ps-ic">🔌</div><div class="ps-who">Insert</div><div class="ps-do">Mesh node + NFC + solar</div></div>
+        <div class="rm-pipe-arrow">→</div>
+        <div class="rm-pstep"><div class="ps-ic">◉</div><div class="ps-who">Finish + test</div><div class="ps-do">Adinkra stamp · a living totem</div></div>
+      </div>
+    </div>
+
+    <div class="rm-panel">
+      <div class="rm-pnum disp">3</div>
+      <div class="rm-plabel">Amara's Screen</div>
+      <div class="rm-pscene">Her Blender model sits beside the physical piece — the digital twin of a thing her hands will finish. Every step is captured: photos, measurements, the elder's technique. It becomes <strong>grant-fundable documentation of craft</strong>.</div>
+      <div class="rm-pcaption disp">"Every build is a record of the craft that made it."</div>
+    </div>
+
+    <div class="rm-panel">
+      <div class="rm-pnum disp">4</div>
+      <div class="rm-plabel">The Three Products</div>
+      <div class="rm-pscene"><strong>Token</strong> — the elder's tap ($0.80–$3). <strong>Totem</strong> — the porch node ($90–$150). <strong>Repeater</strong> — the silent relay ($40–$130). Three things the block can build for itself, at a cost any grant can cover.</div>
+      <div class="rm-pcaption disp">"The block builds its own network."</div>
+    </div>
+
+    <div class="rm-panel">
+      <div class="rm-pnum disp">5</div>
+      <div class="rm-plabel">Wages, Portfolio, Standing</div>
+      <div class="rm-pscene">Every apprentice leaves with three things: a <strong>wage</strong> (funded through summer youth employment), a <strong>portfolio</strong> of real fabricated work, and <strong>standing</strong> on the community ledger — recognized as a builder of the network.</div>
+      <div class="rm-pcaption disp">"Paid to preserve. Skilled to build."</div>
+    </div>
+
+    <div class="rm-panel">
+      <div class="rm-pnum disp">6</div>
+      <div class="rm-plabel">Self-Replication</div>
+      <div class="rm-pscene">Moorestown's youth build the totems for Camden. Camden's youth build Wilmington's. Wilmington's build the next. The network doesn't ship hardware in — it <strong>grows its own</strong>, node by node, block by block.</div>
+      <div class="rm-pcaption disp">"Every new node's totems are built by that node's youth."</div>
+    </div>
+
+    <div class="rm-fund">
+      <div class="rm-fcol">
+        <div class="f-src disp">Youth Wages</div>
+        <div class="f-amt">SYEP · WIOA · YouthBuild</div>
+        <div class="f-for">Summer youth employment and workforce dollars pay the apprentices who build the hardware.</div>
+      </div>
+      <div class="rm-fcol">
+        <div class="f-src disp">Heritage & Craft</div>
+        <div class="f-amt">NPS URC · AACR-History</div>
+        <div class="f-for">Preservation grants fund the documentation of elder craft — surveys, oral histories, the record itself.</div>
+      </div>
+      <div class="rm-fcol">
+        <div class="f-src disp">Infrastructure</div>
+        <div class="f-amt">State digital-equity · ISOC</div>
+        <div class="f-for">Digital-equity and connectivity grants fund the nodes, repeaters, and the mesh itself.</div>
+      </div>
+    </div>
+
+    <div class="rm-panel wide">
+      <div class="rm-pnum disp">7</div>
+      <div class="rm-plabel">The Braid</div>
+      <div class="rm-pscene">Three funding streams, braided into one workforce product: wages, heritage, and infrastructure. This is the model that lets the network pay for itself — not one grant chased in isolation, but a stack that mirrors the proven playbook of Detroit's Digital Stewards and NYC Mesh.</div>
+      <div class="rm-pcaption disp">"Wages, heritage, and infrastructure — braided into one."</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- rm-body -->
+
+<div class="rm-foot">
+  <div class="rm-foot-q disp">"Memory should live at the physical edge, under local control, and travel only by consent."</div>
+  <div class="rm-foot-src">The Sovereign Edge Memory Principle</div>
+  <div class="rm-foot-note">Technical note: The mesh carries signals and story-pointers only (240-byte LoRa payload limit) — full oral histories sync separately through the library archive rig by consent tier. "Presence by tier, not name" is a deliberate design choice using low-precision beacons on encrypted channels, not absolute anonymity. Cost figures reflect community-reported builds; ruggedized public units run toward the higher end.</div>
+</div>
+
+<div class="rm-kente"></div>
+</div>
